@@ -1,0 +1,8 @@
+
+
+@media (max-width:576px) {
+    .channel-container,
+    .searchfeed-videodescription-container,.searched-video-description{
+        display: none;
+    }
+}

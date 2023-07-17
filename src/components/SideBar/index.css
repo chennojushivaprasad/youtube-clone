@@ -1,0 +1,146 @@
+.sidebar {
+  position: sticky;
+  top: 60px;
+  left: 0;
+  margin-top: 0px;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 10px;
+  z-index: 100;
+  overflow-y: scroll;
+  width:110px;
+}
+
+.sidebar{
+  scroll-behavior: smooth;
+}
+
+
+ .sidebar::-webkit-scrollbar {
+  width:8px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  background-color: rgba(66, 48, 48, 0);
+  outline: 1px solid rgba(112, 128, 144, 0);
+  transition: all 1s;
+} 
+
+
+.sidebar:hover::-webkit-scrollbar{
+overflow-y: scroll;
+-webkit-box-shadow: inset 0 0 6px rgba(202, 202, 202, 0.3);
+background-color: #717171;
+/* outline: 1px solid rgb(197, 197, 197); */
+border-radius: 30px;
+}
+
+/* scroll bar */
+
+
+.sidebar-header-container {
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.categories {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  transition: none;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 10px 0px;
+  border-radius: 10px;
+  transition: none;
+}
+
+.active-category-dark-bg-color {
+  background-color: #272727;
+}
+
+.active-category-light-bg-color {
+  background-color: #f2f2f2;
+}
+
+
+.active-category{
+  color: #FF0000;
+}
+
+.category-link {
+  text-decoration: none;
+}
+
+.category-icon {
+  font-size: 2.2rem;
+  padding: 0 15px;
+}
+
+.category-btn {
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: none;
+  outline: none;
+
+  transition: none;
+}
+
+.category-name {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* default side bar menu */
+.category-default-menu-btn {
+  padding: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.category-menu-size {
+  font-size: 10px;
+  padding:2px;
+}
+
+.unactive-sidebar .category-icon {
+  padding: 0 24px;
+}
+
+.unactive-sidebar .category{
+  justify-content: center;
+}
+
+
+.active-sidebar {
+  width: 240px;
+  /* animation-name: sidebaranimate;
+  animation-duration: 1s; */
+}
+
+/* @keyframes sidebaranimate {
+  0%   { left:-100%; top:60px;}
+  100% { left:0px; top:60px;}
+} */
+
+@media (max-width:768px) {
+  .active-sidebar{
+    position: fixed;
+    max-width: 200px;
+  }
+  .unactive-sidebar{
+    display: none;
+  }
+
+}

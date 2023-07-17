@@ -1,0 +1,152 @@
+.video-card-container{
+    text-decoration: none;
+  
+
+}
+
+.feed-responsive-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+
+.video-card {
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 25%;
+  border-radius: 10px;
+  position: relative;
+  transition: width 2s;
+  border: 2p solid black;
+}
+
+.video-card-container {
+  border-radius: 10px;
+  min-height: 100px;
+}
+
+.video-thumbnail-container {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  object-fit: cover;
+  position: relative;
+  padding-top: 56.25%;
+  transition: all 1s;
+}
+
+.video-feed-thumbnail {
+  position: absolute;
+  top: 0;
+  min-width: 100%;
+  object-fit: cover;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.feed-video-player {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  transition: all 1s;
+}
+
+.video-card-details {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.views-published-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.video-feed-channel-container{
+   display: flex;
+   gap: 10px;
+   align-items: center;
+}
+
+.video-card-channel-logo-container{
+    max-width: 50px;
+    width: 4rem;
+
+}
+
+.video-card-channel-logo{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.loading-container-view {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+}
+
+@media (min-width: 1600px) {
+  .video-card {
+    width: 360px;
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: 1600px) {
+  .video-card {
+    width: 33%;
+  }
+}
+
+@media (max-width: 992px) {
+  .video-card {
+    width: 50%;
+  }
+
+  .unactive-sidebar {
+    width: 0px;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .video-card {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.video-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.channel-container {
+  margin-top: 5px;
+}
+
+.channel-name {
+  font-size: 1.4rem;
+}
+
+.views {
+  font-size: 1.4rem;
+}
+
+.ago-text {
+  font-size: 1.4rem;
+}
+
+
