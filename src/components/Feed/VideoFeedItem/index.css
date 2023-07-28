@@ -19,7 +19,6 @@
   border-radius: 10px;
   position: relative;
   transition: width 2s;
-  border: 2p solid black;
 }
 
 .video-card-container {
@@ -97,12 +96,6 @@
   height: 80px;
 }
 
-@media (min-width: 1600px) {
-  .video-card {
-    width: 360px;
-    flex-grow: 1;
-  }
-}
 
 @media (max-width: 1600px) {
   .video-card {

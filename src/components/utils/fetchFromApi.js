@@ -1,19 +1,19 @@
 
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 
-const accessToken = Cookies.get("yt_access_token");
+// const accessToken = Cookies.get("yt_access_token");
 const base_url = "https://www.googleapis.com/youtube/v3";
 const options = {
   method: "GET",
-  headers: {
-    Authorization: `Bearer ${accessToken}`,
-    Accept: "application/json",
-  },
+  // headers: {
+  //   Authorization: `Bearer ${accessToken}`,
+  //   Accept: "application/json",
+  // },
 };
 
 const fetchFromApi = async (url) => {
-  const fetchUrl = `${base_url}/${url}`
+  const fetchUrl = `${base_url}/${url}&key=${process.env.REACT_APP_KEY}`
   try {
     const response = await fetch(fetchUrl, options);
     if (response.ok) {

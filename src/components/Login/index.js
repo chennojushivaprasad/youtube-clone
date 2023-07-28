@@ -9,6 +9,8 @@ import { Navigate } from "react-router-dom";
 const clientId = process.env.REACT_APP_CLIENT_ID
 const clientSecret = process.env.REACT_APP_CLIENT_SECRECT
 
+const redirectUri =  "https://nxtube.netlify.app/login"
+
 
 const getAccessToken = async () => {
   const options = {
@@ -50,7 +52,7 @@ const Login = () => {
   const params = {
     client_id:
      clientId,
-    redirect_uri: "https://nxttube.netlify.app/login",
+    redirect_uri:redirectUri,
     scope:
       "https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.readonly https://www.googleapis.com/auth/youtube.force-ssl https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtubepartner https://www.googleapis.com/auth/youtubepartner-channel-audit",
     response_type: "code",
@@ -71,7 +73,7 @@ const Login = () => {
         client_secret: clientSecret,
         code: authoriazationGrantCode,
         grant_type: "authorization_code",
-        redirect_uri: "https://nxttube.netlify.app/login",
+        redirect_uri: redirectUri,
       }),
     };
 

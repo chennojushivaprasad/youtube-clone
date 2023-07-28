@@ -12,7 +12,7 @@ import FailureView from "../../FailureView";
 import LoadingView from "../../LoadingView";
 import WatchScreenVideoPlayer from "../WatchScreenVideoPlayer";
 import SuggestedVideos from "../SuggestedVideos";
-import Comments from "../Comments";
+// import Comments from "../Comments";
 
 const WatchScreen = () => {
   const [videoDetails, setVideoData] = useState(undefined);
@@ -66,7 +66,7 @@ const WatchScreen = () => {
                 videoDetails={videoDetails}
                 loadingStatus={loadingStatus}
               />
-              <Comments videoId={videoId} />
+              {/* <Comments videoId={videoId} /> */}
             </>
           )}
 

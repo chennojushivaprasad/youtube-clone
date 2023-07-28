@@ -1,0 +1,18 @@
+@media (max-width: 576px) {
+  .playing-video-details {
+    flex-direction: column;
+  }
+
+  .playing-video-channel-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .video-like-share-more-container {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+  }
+}

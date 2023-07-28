@@ -92,7 +92,7 @@ const VideoFeedItem = (props) => {
           </div>
           <div className="views-published-container">
             <p className={`views ${textColor}`}>
-              {<ViewsCount views={viewCount} />}{" "}
+              {<ViewsCount views={viewCount} />} Views
             </p>
             <p className={`ago-text ${textColor} `}>
               {<PublishedTimeAgo date={publishedAt} />}

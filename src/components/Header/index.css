@@ -3,9 +3,11 @@
   position: sticky;
   top: 0;
   padding: 5px 28px;
-  height: 60px;
+  /* height: 60px; */
   display: flex;
+  flex-direction: column;
   align-items: center;
+  
   gap: 20px;
   z-index: 1000;
 }
@@ -214,6 +216,7 @@
   }
 
   .mobile-search-container{
+    width: 100%;
     padding: 10px 5px;
     background-color: #ebebeb;
     border-top: 2px solid #e4e4e4;
@@ -240,5 +243,10 @@
   }
   .mobile-voice-search-icon{
     background-color: transparent;
+  }
+
+
+  .voice-search-popup{
+    width: 90%;
   }
 }

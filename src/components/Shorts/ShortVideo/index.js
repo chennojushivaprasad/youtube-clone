@@ -1,11 +1,13 @@
-import React, { useContext} from "react";
+import React, { useContext,useEffect,useState} from "react";
 import "./index.css";
 import YouTube from "react-youtube";
 import { BiSolidCommentDetail } from "react-icons/bi";
 import { FaShare } from "react-icons/fa6";
-import { AiFillLike, AiFillDislike } from "react-icons/ai";
+import { GrFormView } from "react-icons/gr";
+import { AiFillLike } from "react-icons/ai";
 import UserContext from "../../Context";
-// import fetchFromApi from "../../utils/fetchFromApi";
+import fetchFromApi from "../../utils/fetchFromApi";
+import ViewsCount from "../../ViewsCount";
 
 // function YTDurationToSeconds(duration) {
 //   if (duration !== undefined) {
@@ -57,33 +59,28 @@ import UserContext from "../../Context";
 // };
 
 const ShortVideo = (props) => {
-  // const [videoStats, setVideoStatistics] = useState(null);
+  const [videoStats, setVideoStatistics] = useState(null);
   const { video, headerHeight, viewableHeight, isActive,nextShortVideo } =
     props;
   const { textColor } = useContext(UserContext);
   const videoId = video?.id?.videoId;
 
-  // useEffect(() => {
-  //   const url = `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}`;
-  //   fetchFromApi(url)
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.json();
-  //       }
-  //     })
-  //     .then((data) => setVideoStatistics(data.items[0]));
-  // }, [videoId]);
+  useEffect(() => {
+    const url = `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}`;
+    fetchFromApi(url)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((data) => setVideoStatistics(data.items[0]));
+  }, [videoId]);
 
   const videoHeight = viewableHeight - headerHeight;
 
-  // const opts = {
-  //   height: videoHeight,
-  //   width: "100%",
-  //   playerVars: {
-  //     // https://developers.google.com/youtube/player_parameters
-  //     autoplay: isActive ? 1 : 0,
-  //   },
-  // };
+  const likeCount = videoStats?.statistics?.likeCount
+  const commentCount = videoStats?.statistics?.commentCount
+  const viewCount = videoStats?.statistics?.viewCount
 
   var tag = document.createElement("script");
 
@@ -142,23 +139,23 @@ const ShortVideo = (props) => {
           <button type="button" className="like-button short-button">
             <AiFillLike className="short-button-icon" />
             <p className={`like  short-button-name ${textColor}`}>
-              {}Like
+              {likeCount}
             </p>{" "}
           </button>
         </div>
-        <div className="short-video-dislike-container">
-          <button type="button" className="dislike-button short-button">
-            <AiFillDislike className="short-button-icon" />
-            <p className={`short-dislike  short-button-name ${textColor}`}>
-              {}Dislike
-            </p>{" "}
+        <div className="short-video-view-container">
+          <button type="button" className="view-button short-button">
+            <GrFormView className="short-button-icon" />
+            <p className={`short-viewcount  short-button-name ${textColor}`}>
+            {<ViewsCount views={viewCount} />}
+            </p>
           </button>
         </div>
         <div className="short-video-comment-container">
           <button type="button" className="short-button comment-button">
             <BiSolidCommentDetail className="short-button-icon" />
             <p className={`short-comment  short-button-name  ${textColor}`}>
-              {}Comment
+              {commentCount}
             </p>
           </button>
         </div>

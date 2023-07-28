@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import ViewsCount from "../../ViewsCount";
-
+import "./index.css"
 import PublishedTimeAgo from "../../TimeAgo";
 import UserContext from "../../Context";
 // import LoadingView from "../../LoadingView";
@@ -119,7 +119,7 @@ const WatchScreenVideoPlayer = (props) => {
                 <div className="comments-btn-container">
                   <button className="like-btn">{}</button>
                   <button className="dislike-btn">{}</button>
-                  <button className="like-btn">Reply</button>
+                  <button className="like-btn"></button>
                 </div>
               </div>
             </li>

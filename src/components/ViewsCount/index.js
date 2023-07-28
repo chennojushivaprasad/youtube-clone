@@ -31,7 +31,7 @@ function ViewsCount(props) {
     }
   }
 
-  return <p>{viewsFormatted} Views</p>;
+  return <p>{viewsFormatted}</p>;
 }
 
 export default ViewsCount;

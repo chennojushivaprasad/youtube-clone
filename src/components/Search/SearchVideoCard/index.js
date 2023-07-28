@@ -30,7 +30,7 @@ const SearchVideoCard = (props) => {
 
   useEffect(()=>{
 
-     const fetchVideoStatsUrl = `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}`;
+     const fetchVideoStatsUrl = `videos?part=snippet%2CcontentDetails%2Cstatistics&type=video&id=${videoId}`;
     fetchFromApi(fetchVideoStatsUrl)
       .then((response) => {
         if (response.ok) {
@@ -84,7 +84,7 @@ const SearchVideoCard = (props) => {
         <div className="searched-video-card-details">
           <p className={`video-title ${textColor}`}>{title}</p>
           <div className="views-published-container">
-            <p className={`views ${textColor}`}>{<ViewsCount views={viewCount}/>}</p>
+           {<ViewsCount views={viewCount}/>} Views
             <p className={`ago-text ${textColor} `}>
               {<PublishedTimeAgo date={publishedAt} />}
             </p>

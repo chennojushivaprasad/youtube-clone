@@ -40,7 +40,7 @@
   display: flex;
 }
 .subscribe-btn{
- padding: 10px;
+ padding: 5px;
  border-radius: 20px;
  border: none;
  border: 1px solid rgb(112, 112, 112);
@@ -194,5 +194,14 @@
   }
   .suggested-videos-container {
     flex-grow: 1;
+  }
+}
+
+
+@media (max-width:576px) {
+  .video-details-responsive-container {
+    width: 100%;
+    padding: 10px;
+   box-sizing: border-box;
   }
 }

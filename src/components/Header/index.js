@@ -7,8 +7,8 @@ import React, {
 } from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
-import {IoVolumeMuteSharp,IoVolumeHighSharp} from "react-icons/io5"
-import { Link, useNavigate  } from "react-router-dom";
+import { IoVolumeMuteSharp, IoVolumeHighSharp } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 // import SpeechRecognition, {
 //   useSpeechRecognition,
 // } from "react-speech-recognition";
@@ -19,7 +19,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import MicIcon from "@mui/icons-material/Mic";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 // import NotificationsIcon from "@mui/icons-material/Notifications";
-import {BsMicFill,BsMicMuteFill,BsFillSunFill} from "react-icons/bs";
+import { BsMicFill, BsMicMuteFill, BsFillSunFill } from "react-icons/bs";
 import UserContext from "../Context";
 import { signOut } from "firebase/auth";
 import { auth } from "../Context/firebase";
@@ -81,10 +81,9 @@ function Header() {
     setHeight(ref.current.offsetHeight);
   }, []);
 
-
-  useEffect(()=> {
-    storeHeaderHeight(height)
-  },[height,storeHeaderHeight])
+  useEffect(() => {
+    storeHeaderHeight(height);
+  }, [height, storeHeaderHeight]);
 
   recognition.current.onstart = function () {
     recognizing = true;
@@ -172,7 +171,11 @@ function Header() {
             className="popup-search-icon-btn"
             onClick={onClickVoiceSearch}
           >
-            {microphoneListening ? < BsMicFill fontSize="" className={textColor}/> : <BsMicMuteFill fontSize="" className={textColor} />}
+            {microphoneListening ? (
+              <BsMicFill fontSize="" className={textColor} />
+            ) : (
+              <BsMicMuteFill fontSize="" className={textColor} />
+            )}
           </button>
           {!microphoneListening && (
             <p className={`voice-search-popup-text ${textColor}`}>
@@ -189,14 +192,13 @@ function Header() {
       .then(() => {
         // Sign-out successful.
         Cookies.remove("yt-access-token");
-       
       })
       .catch((error) => {
         // An error happened.
-        console.log("error",error);
+        console.log("error", error);
       });
 
-      return navigate(`/login`);
+    return navigate(`/login`);
   };
   // console.log("trabscript", transcript);
 
@@ -260,7 +262,11 @@ function Header() {
               type="button"
               onClick={() => toggleLightDarkMode()}
             >
-             {isLightModeActive ? <DarkModeIcon className={textColor} /> :<BsFillSunFill className={textColor}  />}
+              {isLightModeActive ? (
+                <DarkModeIcon className={textColor} />
+              ) : (
+                <BsFillSunFill className={textColor} />
+              )}
             </button>
             {/* <button
               className="notifications-button"
@@ -274,7 +280,11 @@ function Header() {
               type="button"
               onClick={() => changeHoverMuteStatus(!onHoverVideoMuted)}
             >
-             {onHoverVideoMuted?<IoVolumeMuteSharp className={textColor} />: <IoVolumeHighSharp className={textColor}/> }
+              {onHoverVideoMuted ? (
+                <IoVolumeMuteSharp className={textColor} />
+              ) : (
+                <IoVolumeHighSharp className={textColor} />
+              )}
             </button>
             <button
               className="logout-button"
@@ -286,29 +296,28 @@ function Header() {
             </button>
           </div>
         </div>
-      </div>
-      { <div className={`mobile-search-container`}>
-            <div className={`mobile-searchbar ${searchBarborder} ${bgColor}`}>
-              <input
-                type="text"
-                placeholder="search"
-                className={`search-input  ${textColor}`}
-                onChange={changeSearchInput}
-                onKeyDown={onClickEnterSetSearchValue}
-                value={search}
+        <div className={`mobile-search-container`}>
+          <div className={`mobile-searchbar ${searchBarborder} ${bgColor}`}>
+            <input
+              type="text"
+              placeholder="search"
+              className={`search-input  ${textColor}`}
+              onChange={changeSearchInput}
+              onKeyDown={onClickEnterSetSearchValue}
+              value={search}
+            />
+            <button
+              className={`mobile-search-button ${searchBarborder} ${bgColor}`}
+              onClick={() => {
+                setSearchValue(search);
+              }}
+            >
+              <SearchIcon
+                fontSize=""
+                className={`mobile-search-icon ${textColor}`}
               />
-              <button
-                className={`mobile-search-button ${searchBarborder} ${bgColor}`}
-                onClick={() => {
-                  setSearchValue(search);
-                }}
-              >
-                <SearchIcon
-                  fontSize=""
-                  className={`mobile-search-icon ${textColor}`}
-                />
-              </button>
-              <button
+            </button>
+            <button
               type="button"
               className="mobile-voice-search-button"
               onClick={() => onClickVoiceSearch()}
@@ -318,10 +327,11 @@ function Header() {
                 className={`mobile-voice-search-icon ${textColor}`}
               />
             </button>
-            </div>
-
-         
-          </div>}
+          </div>
+        </div>
+      </div>
+      
+      
     </>
   );
 }

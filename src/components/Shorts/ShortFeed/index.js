@@ -31,7 +31,6 @@ const ShortFeed = () => {
     const url = `search?part=snippet&q=Shorts&regionCode=${regionCode}&order=date&maxResults=25`;
     fetchFromApi(url)
       .then((response) => {
-        console.log("response in fedd", response);
         if (response.ok) {
           return response.json();
         } else {
@@ -96,7 +95,6 @@ const ShortFeed = () => {
     // }
   });
 
-  console.log("render short feed");
   return (
     <div className={`short-feed-container ${bgColor}`}>
       <Header />

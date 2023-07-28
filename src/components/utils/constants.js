@@ -47,7 +47,7 @@ const categories = [
   {
     categoryId: "News",
     categoryName: "News",
-    displayText: "News & Politics",
+    displayText: "News",
     icon: <NewspaperIcon className="category-icon" fontSize="" />,
   },
   {
